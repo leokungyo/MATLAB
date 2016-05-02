@@ -16,7 +16,7 @@ figure;scatter3(kangaroo(:,1),kangaroo(:,2),kangaroo(:,3),'.');axis equal;%draw 
 kangaroo_dft = fftn(kangaroo); %compress the original data with DFT
 figure;scatter3(kangaroo_dft(:,1),kangaroo_dft(:,2),kangaroo_dft(:,3),'.');axis equal;%draw the point cloud after compression
 
-%%%compress chief
+%%%compress chef
 load chef_view2.dat
 figure;scatter3(chef_view2(:,1),chef_view2(:,2),chef_view2(:,3),'.');axis equal;%draw the original point cloud
 chef_view2_dft = fftn(chef_view2); %compress the original data with DFT
