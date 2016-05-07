@@ -6,7 +6,7 @@ trex_com = dct(trex);
 after_mask = [];
 i = 1;
 %choose a mask array to compress the origin point cloud
-while i<24000
+while i<20000
     after_mask(i,:) = trex_com(i,:);
     i = i + 1;
 end
@@ -15,11 +15,12 @@ compression_ratio = size(after_mask,1)/size(trex,1);%compression ratio
 
 %fill in zeros to make arrays have same length to compute MSE
 revert = idct(after_mask);
-for j = 24000:38776
+figure;scatter3(revert(:,1),revert(:,2),revert(:,3),'.');axis equal;
+for j = 20000:38776
     revert(j,:) = [0,0,0];
 end
 
-MSE = immse(revert,trex);%MSE
+MSE = immse(trex,revert);%MSE
 figure;scatter3(after_mask(:,1),after_mask(:,2),after_mask(:,3),'.');axis equal;
 figure;scatter3(revert(:,1),revert(:,2),revert(:,3),'.');axis equal;
             
