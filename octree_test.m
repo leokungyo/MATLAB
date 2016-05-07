@@ -1,5 +1,5 @@
 load trex.dat
-OT = OcTree(trex,'binCapacity',20);        
+OT = OcTree(trex,'binCapacity',10,'style','weighted');   
 figure
 boxH = OT.plot;
 cols = lines(OT.BinCount);
