@@ -1,3 +1,6 @@
+clear all;
+close all;
+clc;
 %%%%%trex
 load trex.dat;
 
@@ -6,7 +9,7 @@ trex_com = dct(trex);
 after_mask = [];
 i = 1;
 %choose a mask array to compress the origin point cloud
-while i<19388
+while i<0.5 * size(trex,1)
     after_mask(i,:) = trex_com(i,:);
     i = i + 1;
 end
@@ -35,7 +38,7 @@ chicken_com = dct(chicken);
 after_mask = [];
 i = 1;
 %choose a mask array to compress the origin point cloud
-while i<19388
+while i<0.5 * size(chicken,1)
     after_mask(i,:) = chicken_com(i,:);
     i = i + 1;
 end
@@ -64,7 +67,7 @@ kangaroo_com = dct(kangaroo);
 after_mask = [];
 i = 1;
 %choose a mask array to compress the origin point cloud
-while i<19388
+while i<0.5 * size(kangaroo,1)
     after_mask(i,:) = kangaroo_com(i,:);
     i = i + 1;
 end
@@ -74,8 +77,8 @@ revert_kangaroo = idct(kangaroo_com);
 toc;
 t_kangaroo = toc;
 
-csvwrite('chicken_DCT_before.dat',kangaroo);
-csvwrite('chicken_DCT_after.dat',revert_kangaroo);
+csvwrite('kangaroo_DCT_before.dat',kangaroo);
+csvwrite('kangaroo_DCT_after.dat',revert_kangaroo);
 
 figure;scatter3(kangaroo(:,1),kangaroo(:,2),kangaroo(:,3),'.');axis equal;
 figure;scatter3(revert_kangaroo(:,1),revert_kangaroo(:,2),revert_kangaroo(:,3),'.');axis equal;
@@ -93,7 +96,7 @@ chef_com = dct(chef);
 after_mask = [];
 i = 1;
 %choose a mask array to compress the origin point cloud
-while i<19388
+while i<0.5 * size(chef,1)
     after_mask(i,:) = chef_com(i,:);
     i = i + 1;
 end
@@ -103,8 +106,8 @@ revert_chef = idct(chef_com);
 toc;
 t_chef = toc;
 
-csvwrite('chicken_DCT_before.dat',chef);
-csvwrite('chicken_DCT_after.dat',revert_chef);
+csvwrite('chef_DCT_before.dat',chef);
+csvwrite('chef_DCT_after.dat',revert_chef);
 
 figure;scatter3(chef(:,1),chef(:,2),chef(:,3),'.');axis equal;
 figure;scatter3(revert_chef(:,1),revert_chef(:,2),revert_chef(:,3),'.');axis equal;
