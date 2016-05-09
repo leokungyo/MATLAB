@@ -1,6 +1,6 @@
 # MATLAB
 
-EESM5547 project 1
+EESM5547 project 1 (Proposal and Presentation slides are under "proposal and slides" folder)
 
 We've done 4 algorithms to compress the point cloud and they are:
 
